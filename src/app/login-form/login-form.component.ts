@@ -11,6 +11,7 @@ export class LoginFormComponent implements OnInit {
 
   email = new FormControl('');
   password = new FormControl('');
+  loginSuccess = true;
 
   constructor(private auth: AuthService) { }
 
@@ -20,7 +21,16 @@ export class LoginFormComponent implements OnInit {
   public attemptLogin() {
     let email = this.email.value;
     let password = this.password.value;
-    this.auth.login(email, password)
+
+    this.auth.login(email, password).subscribe({
+      next: authResult => {
+        this.auth.setSession(authResult);
+        this.loginSuccess = true;
+      },
+      error: error => {
+        this.loginSuccess = false;
+      }
+    });
   }
 
 }

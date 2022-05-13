@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(email: string, password: string) {
-    return this.http.post(this.authHost+"/login", {"email": email, "password": password}).subscribe(authResult => this.setSession(authResult));
+    return this.http.post(this.authHost+"/login", {"email": email, "password": password})
   }
 
   public setSession(authResult: any) {
@@ -26,5 +27,19 @@ export class AuthService {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
   }
+  
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  isLoggedOut() {
+    return !this.isLoggedIn();
+  }
+
+  getExpiration() {
+    const expiration = localStorage.getItem("expires_at") || "0";
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
+  }    
 
 }

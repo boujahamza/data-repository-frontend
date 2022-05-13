@@ -4,4 +4,5 @@
     <label for="password">Password</label>
     <input name="password" [formControl]="password">
     <button type="button" (click)="attemptLogin()">Login</button>
+    <ngb-alert type="danger" *ngIf="!loginSuccess">Something went wrong!</ngb-alert>
 </form>
