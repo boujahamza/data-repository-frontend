@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   password = new FormControl('');
   loginSuccess = true;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,7 @@ export class LoginFormComponent implements OnInit {
       next: authResult => {
         this.auth.setSession(authResult);
         this.loginSuccess = true;
+        this.router.navigateByUrl('/');
       },
       error: error => {
         this.loginSuccess = false;
