@@ -8,6 +8,9 @@
     <li ngbNavItem>
         <a ngbNavLink *ngIf="auth.isLoggedIn()" (click)="auth.logout()" routerLink="/home">Log Out</a>
     </li>
+    <li ngbNavItem *ngIf="auth.getUsername()">
+        <b>{{auth.getUsername()}}</b>
+    </li>
 </ul>
 <div [ngbNavOutlet]="nav"></div>
 Main component! will contain navbar and stuff

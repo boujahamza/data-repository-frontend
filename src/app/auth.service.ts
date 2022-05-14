@@ -18,13 +18,19 @@ export class AuthService {
 
   public setSession(authResult: any) {
     const expiresAt = (new Date).getTime() + authResult.expiresIn;
-
+    
     localStorage.setItem('id_token', authResult.user.token);
+    localStorage.setItem('username', authResult.user.username);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+  }
+
+  getUsername() {
+    return localStorage.getItem("username");
   }
 
   logout() {
     localStorage.removeItem("id_token");
+    localStorage.removeItem("username");
     localStorage.removeItem("expires_at");
   }
   
