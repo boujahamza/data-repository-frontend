@@ -9,13 +9,17 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileDisplayComponent } from './file-display/file-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     MainComponent,
-    HomeComponent
+    HomeComponent,
+    FileUploadComponent,
+    FileDisplayComponent
   ],
   imports: [
     BrowserModule,

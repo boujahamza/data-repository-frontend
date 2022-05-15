@@ -1,16 +1,18 @@
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
     <li ngbNavItem>
-        <a ngbNavLink routerLink="/home">Home</a>
+        <a ngbNavLink routerLink="/">Home</a>
+    </li>
+    <li ngbNavItem *ngIf="auth.isLoggedIn()">
+        <a ngbNavLink routerLink="/upload">Upload</a>
     </li>
     <li ngbNavItem>
         <a ngbNavLink *ngIf="!auth.isLoggedIn()" routerLink="/login">Log In</a>
     </li>
     <li ngbNavItem>
-        <a ngbNavLink *ngIf="auth.isLoggedIn()" (click)="auth.logout()" routerLink="/home">Log Out</a>
+        <a ngbNavLink *ngIf="auth.isLoggedIn()" (click)="auth.logout()" routerLink="/">Log Out</a>
     </li>
-    <li ngbNavItem *ngIf="auth.getUsername()">
-        <b>{{auth.getUsername()}}</b>
+    <li>
+        <div *ngIf="auth.getUsername()"><b>{{auth.getUsername()}}</b></div>
     </li>
 </ul>
-<div [ngbNavOutlet]="nav"></div>
-Main component! will contain navbar and stuff
+<router-outlet></router-outlet>
