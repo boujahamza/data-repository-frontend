@@ -29,7 +29,7 @@ export class FileUploadComponent implements OnInit {
       this.fileName = file.name;
 
       const formData = new FormData();
-      formData.append("thumbnail", file);
+      formData.append("data", file);
 
       const upload$ = this.http.post(this.fileHandlerUrl, formData);
       upload$.subscribe();

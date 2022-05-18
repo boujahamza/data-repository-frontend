@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(email: string, password: string) {
-    return this.http.post(this.authHost+"/login", {"email": email, "password": password})
+    return this.http.post(this.authHost+"/login", {"email": email, "password": password});
   }
 
   public setSession(authResult: any) {
