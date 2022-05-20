@@ -13,6 +13,11 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { FileDisplayComponent } from './file-display/file-display.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth.interceptor';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,12 @@ import { AuthInterceptor } from './auth.interceptor';
     ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
+    //Material imports
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatButtonModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

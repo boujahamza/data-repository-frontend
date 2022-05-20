@@ -1,18 +1,27 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
-    <li ngbNavItem>
-        <a ngbNavLink routerLink="/">Home</a>
-    </li>
-    <li ngbNavItem *ngIf="auth.isLoggedIn()">
-        <a ngbNavLink routerLink="/upload">Upload</a>
-    </li>
-    <li ngbNavItem>
-        <a ngbNavLink *ngIf="!auth.isLoggedIn()" routerLink="/login">Log In</a>
-    </li>
-    <li ngbNavItem>
-        <a ngbNavLink *ngIf="auth.isLoggedIn()" (click)="auth.logout()" routerLink="/">Log Out</a>
-    </li>
-    <li>
-        <div *ngIf="auth.getUsername()"><b>{{auth.getUsername()}}</b></div>
-    </li>
-</ul>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>dataRepoFrontend</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
