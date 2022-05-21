@@ -1,8 +1,15 @@
-<form>
-    <label for="email">Email</label>
-    <input name="email" [formControl]="email">
-    <label for="password">Password</label>
-    <input name="password" [formControl]="password">
-    <button type="button" (click)="attemptLogin()">Login</button>
+<form onsubmit="return false">
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" [formControl]="email">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" [formControl]="password">
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+    <button mat-raised-button color="primary" (click)="attemptLogin()">Login</button>
     <ngb-alert type="danger" *ngIf="!loginSuccess" [dismissible]="false">Something went wrong!</ngb-alert>
 </form>
+<a href="/register">I don't have an account</a>

@@ -20,6 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatInputModule } from '@angular/material/input';
     MainComponent,
     HomeComponent,
     FileUploadComponent,
-    FileDisplayComponent
+    FileDisplayComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,

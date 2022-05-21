@@ -1,0 +1,24 @@
+<form>
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" [formControl]="username">
+        <mat-icon matSuffix>account_circle</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" [formControl]="email">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" [formControl]="password">
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input matInput placeholder="Confirm password" type="password" [formControl]="password_confirm">
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+    <button mat-raised-button color="primary" (click)="attemptRegister()" type='button'>Register</button>
+    <ngb-alert type="danger" *ngIf="!registerSuccess" [dismissible]="false">Something went wrong!</ngb-alert>
+</form>
