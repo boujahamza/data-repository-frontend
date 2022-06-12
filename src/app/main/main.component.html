@@ -7,7 +7,8 @@
         <input matInput placeholder="Search">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
-      <a mat-list-item (click)="router.navigateByUrl('/')">Home</a>
+      <a mat-list-item routerLink="">Home</a>
+      <a mat-list-item routerLink="upload">Upload</a>
       <a mat-list-item *ngIf="auth.isLoggedOut()" (click)="router.navigateByUrl('login')">Login</a>
       <a mat-list-item *ngIf="auth.isLoggedIn()" (click)="this.attemptLogout()">Logout</a>
     </mat-nav-list>
