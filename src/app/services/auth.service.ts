@@ -52,4 +52,9 @@ export class AuthService {
     return moment(expiresAt);
   }    
 
+
+  async getUsernameFromId(user_id: string) {
+    let username = await this.http.get(this.authHost + "/username/" + user_id).toPromise();
+    return username;
+  }
 }

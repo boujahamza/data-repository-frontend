@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
